@@ -66,6 +66,19 @@ services:
     networks:
       - internal
 
+  flask_app:
+    container_name: ${CONTAINER_NAME}-flask
+    build:
+      context: ./register_form_csv  # Path to your Flask app's directory
+      dockerfile: Dockerfile  #Dockerfile inside flask_app folder
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./register_form_csv:/app  # Mount the Flask app directory
+    networks:
+      - internal
+
 volumes:
   dbdata:
   wordpress:
