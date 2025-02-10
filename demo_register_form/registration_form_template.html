@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+</head>
+<body>
+
+  <h2>Registration Form</h2>
+
+  <form id="registrationForm">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="age">Age:</label><br>
+    <input type="number" id="age" name="age"><br><br>
+
+    <label for="gender">Gender:</label><br>
+    <select id="gender" name="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br><br>
+
+    <button type="button" onclick="saveFormData()">Save Data</button> <!-- Changed to a button -->
+  </form>
+
+  <script>
+    function saveFormData() {
+      // Get form data
+      const name = document.getElementById('name').value;
+      const age = document.getElementById('age').value;
+      const gender = document.getElementById('gender').value;
+      const email = document.getElementById('email').value;
+
+      // Store data in local storage (temporary)
+      const formData = { name: name, age: age, gender: gender, email: email };
+      localStorage.setItem('formData', JSON.stringify(formData));
+
+      alert('Form data saved! Run the Python script to submit.'); // Tell user next step
+    }
+  </script>
+
+</body>
+</html>
